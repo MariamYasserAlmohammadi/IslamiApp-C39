@@ -7,6 +7,12 @@ import com.route.week4_islami.databinding.ItemVerseBinding
 
 class VersesRecyclerAdapter (private val versesList: List<String>) : RecyclerView.Adapter<VersesRecyclerAdapter.MyViewHolder>() {
 
+    class MyViewHolder(val itemViewBinding: ItemVerseBinding) :
+        RecyclerView.ViewHolder(itemViewBinding.root) {
+        fun bind(verse: String) {
+            itemViewBinding.verse.text = verse
+        }
+    }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val verse =versesList.get(position)
@@ -27,11 +33,5 @@ class VersesRecyclerAdapter (private val versesList: List<String>) : RecyclerVie
     override fun getItemCount(): Int = versesList.size
 
 
-    class MyViewHolder(val itemViewBinding: ItemVerseBinding) : RecyclerView.ViewHolder(
-        itemViewBinding.root
-    ) {
-        fun bind(verse: String) {
-            itemViewBinding.verse.text = verse
-        }
-    }
+
 }

@@ -10,8 +10,8 @@ import com.route.week4_islami.ui.Constants2
 
 class HadethDetailsActivity : AppCompatActivity() {
 
-    lateinit var viewBinding :ActivityHadethDetailsBinding
-    var hadethObj :Hadeth ? =null
+    lateinit var viewBinding: ActivityHadethDetailsBinding
+    var hadethObj: Hadeth? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityHadethDetailsBinding.inflate(layoutInflater)
@@ -21,13 +21,14 @@ class HadethDetailsActivity : AppCompatActivity() {
 
 
     }
-    private fun initViews(){
+
+    private fun initViews() {
         setSupportActionBar(viewBinding.toolBar)
         setTitle(null)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        viewBinding.titleTv.text =hadethObj?.title
-        viewBinding.contentHadeth.hadethContent.text =hadethObj?.content
+        viewBinding.titleTv.text = hadethObj?.title
+        viewBinding.contentHadeth.hadethContent.text = hadethObj?.content
 
     }
 
@@ -37,8 +38,10 @@ class HadethDetailsActivity : AppCompatActivity() {
     }
 
     private fun extractParams() {
-     hadethObj = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra(Constants2.Hadeth_Extra ,Hadeth ::class.java) } else { intent.getParcelableExtra<Hadeth>(Constants2.Hadeth_Extra) as Hadeth
+        hadethObj = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra(Constants2.Hadeth_Extra, Hadeth::class.java)
+        } else {
+            intent.getParcelableExtra<Hadeth>(Constants2.Hadeth_Extra) as Hadeth
         }
     }
 }

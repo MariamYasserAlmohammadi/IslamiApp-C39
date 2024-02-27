@@ -33,16 +33,16 @@ class HadethFragment :Fragment(){
         // open take file name
         val inputStream =context?.assets?.open("ahadeth.txt")
         val fileContent =inputStream?.bufferedReader().use { it?.readText() }
-        val allAhadeth =fileContent?.trim()?.split("#")
-        allAhadeth?.forEach { hadeth ->
-            // hadethTitle + hadeth
+        val allAhadethList =fileContent?.trim()?.split("#")
+        allAhadethList?.forEach { hadeth ->
+            // hadethTitle + hadethContent
             val lines = hadeth.trim().split("\n")
             val title = lines[0]
-            // complete hadeth without title  line by line in list
+            // (content) complete hadeth without title  line by line in list
             val completeOneHadethList = lines.toMutableList().apply {
                 removeAt(0)
             }
-            // complete hadeth without title  as String
+            // (content) complete hadeth without title  as String
             val content = completeOneHadethList.joinToString("\n")
             val hadethObj = Hadeth(title, content)
             // list of ahadeth objects every hadeth have title and content()
@@ -55,8 +55,9 @@ class HadethFragment :Fragment(){
         // show tiltle of hadeth in Hadeth Rcycler View
         val adapter =HadethRecyclerAdapter(hadethList)
         viewBinding.rvHadeth.adapter = adapter
-        adapter.onItemClickListener =HadethRecyclerAdapter.OnItemClickListener{
-            item,postion->startHadethDetailsScreen(item)
+        adapter.onItemClickListener =
+            HadethRecyclerAdapter.OnItemClickListener{ item, postion
+                -> startHadethDetailsScreen(item)
         }
     }
 

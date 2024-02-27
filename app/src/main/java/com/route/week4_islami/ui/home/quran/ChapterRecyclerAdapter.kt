@@ -5,8 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.route.week4_islami.databinding.ItemChapterTitleBinding
 // blocks ,let ,apply ,with ,also
-class ChapterRecyclerAdapter(private val chaptersList: List<String>) :
-    RecyclerView.Adapter<ChapterRecyclerAdapter.MyViewHolder>() {
+class ChapterRecyclerAdapter(private val chaptersList: List<String>) : RecyclerView.Adapter<ChapterRecyclerAdapter.MyViewHolder>() {
+
+    class MyViewHolder(val itemBinding: ItemChapterTitleBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
+        fun bind(title: String) {
+            itemBinding.title.text = title
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemViewBinding: ItemChapterTitleBinding =
@@ -33,14 +39,8 @@ class ChapterRecyclerAdapter(private val chaptersList: List<String>) :
     }
     var onItemClickListener:OnItemClickListener? =null
    fun interface OnItemClickListener{
-        fun onItemClick(item :String ,position: Int)
+        fun onItemClick( title :String ,position: Int)
     }
 
-    class MyViewHolder(val itemBinding: ItemChapterTitleBinding) : RecyclerView.ViewHolder(
-        itemBinding.root
-    ) {
-        fun bind(title: String) {
-            itemBinding.title.text = title
-        }
-    }
+
 }

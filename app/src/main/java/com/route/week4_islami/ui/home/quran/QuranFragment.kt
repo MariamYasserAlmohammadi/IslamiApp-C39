@@ -159,7 +159,7 @@ class QuranFragment : Fragment() {
         viewBinding.rvQuran.adapter = adapter
         adapter.onItemClickListener=
             ChapterRecyclerAdapter.OnItemClickListener{
-                item, position ->  startSurahDetailsActivity(item ,position)
+                title , position ->  startSurahDetailsActivity(title ,position)
             }
 
     }

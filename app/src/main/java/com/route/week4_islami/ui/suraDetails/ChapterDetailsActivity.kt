@@ -1,10 +1,9 @@
 package com.route.week4_islami.ui.suraDetails
 
 import android.os.Bundle
-import android.provider.SyncStateContract.Constants
 import androidx.appcompat.app.AppCompatActivity
-import com.route.week4_islami.R
 import com.route.week4_islami.databinding.ActivityChapterDetailsBinding
+import com.route.week4_islami.ui.Constants
 
 class ChapterDetailsActivity :AppCompatActivity(){
     lateinit var viewBinding: ActivityChapterDetailsBinding
@@ -15,8 +14,8 @@ class ChapterDetailsActivity :AppCompatActivity(){
         viewBinding = ActivityChapterDetailsBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
         setSupportActionBar(viewBinding.toolBar)
-        chapterIndex =intent.getIntExtra(com.route.week4_islami.ui.Constants.CHAPTER_INDEX,0)
-        chapterTitle =intent.getStringExtra(com.route.week4_islami.ui.Constants.CHAPTER_TITLE)?:""
+        chapterIndex =intent.getIntExtra(Constants.CHAPTER_INDEX,0)
+        chapterTitle =intent.getStringExtra(Constants.CHAPTER_TITLE)?:""
         initViews()
         readSurahFile()
     }

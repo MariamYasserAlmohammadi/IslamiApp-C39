@@ -14,7 +14,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Al Fatiha"
+        tools:text="@string/hadeth"
         android:textStyle="normal"/>
     <View
         android:layout_width="0dp"

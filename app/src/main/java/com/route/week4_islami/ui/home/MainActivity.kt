@@ -12,44 +12,55 @@ import com.route.week4_islami.ui.home.quran.QuranFragment
 import com.route.week4_islami.ui.home.radio.RadioFragment
 import com.route.week4_islami.ui.home.tasbeh.TasbehFragment
 
+// host activity -> activity carry fragment in it
+// every activity have object from fragment manager
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding:ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initViews()
-        }
+    }
 
     private fun initViews() {
         binding.contentMain.bottomNav.setOnItemSelectedListener { item ->
-                when (item.itemId) {
-                    R.id.navigation_quran -> {
-                        pushFragment(QuranFragment())
-                    }
-
-                    R.id.navigation_hadeth -> {
-                        pushFragment(HadethFragment())
-                    }
-
-                    R.id.navigation_tasbeh -> {
-                        pushFragment(TasbehFragment())
-                    }
-
-                    R.id.navigation_Radio -> {
-                        pushFragment(RadioFragment())
-                    }
+            val fragment: Fragment = when (item.itemId) {
+                R.id.navigation_quran -> {
+                    QuranFragment()
                 }
-                // item is selected
-                true
+
+                R.id.navigation_hadeth -> {
+                    HadethFragment()
+                }
+
+                R.id.navigation_tasbeh -> {
+                    TasbehFragment()
+                }
+
+                R.id.navigation_Radio -> {
+                    RadioFragment()
+                }
+
+                else -> {
+                    QuranFragment()
+
+                }
             }
-        binding.contentMain.bottomNav.selectedItemId =R.id.navigation_quran
+            pushFragment(fragment)
+
+            // item is selected
+            true
+        }
+        binding.contentMain.bottomNav.selectedItemId = R.id.navigation_quran
     }
-    private fun pushFragment(fragment: Fragment){
+
+    private fun pushFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container,fragment)
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
             .commit()
     }
 
