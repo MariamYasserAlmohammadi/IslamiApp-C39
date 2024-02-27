@@ -1,46 +1,52 @@
-package com.route.week4_islami.ui.home.tasbeh
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.route.week4_islami.R
 import com.route.week4_islami.databinding.FragmentTasbehBinding
 
-class TasbehFragment :Fragment() {
-    lateinit var viewBinding: FragmentTasbehBinding
-     var tasbehCount :Int = 0
+class TasbehFragment : Fragment() {
 
+    private var _viewBinding: FragmentTasbehBinding?=null
+    private val viewBinding get() = _viewBinding!!
+    var currentIndex = 0
+    var counter = 0
+    lateinit var azkarList: MutableList<String>
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        viewBinding = FragmentTasbehBinding.inflate(inflater,container,false)
-        return  viewBinding.root
+    ): View {
+        _viewBinding = FragmentTasbehBinding.inflate(inflater, container, false)
+        return viewBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewBinding.btnTasbehCount.setOnClickListener {
-             tasbehCount = tasbehCount +1
-            viewBinding.tvTasbehCount.text = tasbehCount.toString()
+        azkarList = resources.getStringArray(R.array.azkarList).toMutableList()
+        viewBinding.btnZekrName.text = azkarList[currentIndex]
+        viewBinding.tvZekrCount.text = counter.toString()
+        onSebhaClick()
+    }
 
-
-            // assigning that animation to
-            // the image and start animation
-            viewBinding.imvSebhaBody.startAnimation(AnimationUtils.loadAnimation(activity ,R.anim.rotate_clockwise))
-            if (tasbehCount>33&& tasbehCount<=66){
-                viewBinding.btnTasbehCount.setText("الحمد لله")
-            }else if(tasbehCount>66 && tasbehCount <=99){
-                viewBinding.btnTasbehCount.setText("الله اكبر")
+    private fun onSebhaClick() {
+        viewBinding.imvSebhaBody.setOnClickListener {
+            viewBinding.imvSebhaBody.rotation += (360 / 33).toFloat()
+            if (counter < 33) {
+                counter++
+            } else {
+                counter = 0
+                currentIndex =
+                    if (currentIndex < azkarList.size - 1) ++currentIndex else 0
+                viewBinding.btnZekrName.text = azkarList[currentIndex]
             }
-            if (tasbehCount>99){
-                tasbehCount =0
-            }
-
+            viewBinding.tvZekrCount.text = counter.toString()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _viewBinding =null
     }
 }

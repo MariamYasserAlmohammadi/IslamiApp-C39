@@ -12,10 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Week4islami"
         tools:targetApi="31">
-     <activity android:name=".ui.hadethDetails.HadethDetailsActivity"
-         android:exported="false">
-
-     </activity>
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.hadethDetails.HadethDetailsActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".ui.home.MainActivity"
             android:exported="true">
@@ -27,7 +29,7 @@
         </activity>
         <activity
             android:name=".ui.suraDetails.ChapterDetailsActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

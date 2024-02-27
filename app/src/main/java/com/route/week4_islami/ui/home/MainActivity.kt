@@ -1,5 +1,6 @@
 package com.route.week4_islami.ui.home
 
+import TasbehFragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -10,7 +11,7 @@ import com.route.week4_islami.databinding.ActivityMainBinding
 import com.route.week4_islami.ui.home.hadeth.HadethFragment
 import com.route.week4_islami.ui.home.quran.QuranFragment
 import com.route.week4_islami.ui.home.radio.RadioFragment
-import com.route.week4_islami.ui.home.tasbeh.TasbehFragment
+
 
 // host activity -> activity carry fragment in it
 // every activity have object from fragment manager

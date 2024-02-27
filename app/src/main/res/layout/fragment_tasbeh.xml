@@ -3,74 +3,88 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_img_islami">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/imv_sebha_head"
-        android:layout_width="73dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/sebha_head"
-        app:layout_constraintEnd_toEndOf="@id/imv_sebha_body"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/head_of_seb7a"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/imv_sebha_body"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
 
     <ImageView
         android:id="@+id/imv_sebha_body"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/sebha_body"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-29dp"
+        android:src="@drawable/body_of_seb7a"
+        android:adjustViewBounds="true"
+        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintHeight_percent="0.33"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imv_sebha_head"
-        app:layout_constraintStart_toStartOf="parent" />
+
+ />
 
     <TextView
-        android:id="@+id/tv_tesbeh"
+        android:id="@+id/tv_number_of_zekr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="عدد التسبيحات"
-        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@color/azkar_tv_color"
+        android:text="Number of zekr"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imv_sebha_body" />
+        app:layout_constraintTop_toBottomOf="@+id/imv_sebha_body" />
 
     <TextView
-        android:id="@+id/tv_tasbeh_count"
+        android:id="@+id/tv_zekr_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_tesbeh"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="34dp"
-        android:text="0"
-        android:textColor="@color/black"
-        android:padding="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/background_counter"
+        android:padding="20dp"
+        tools:text="0"
+        android:textColor="@color/azkar_counter_text_color"
         android:textSize="25sp"
-        android:background="@drawable/textview_background_rounded"
-        android:textStyle="normal" />
-
-    <Button
-        android:id="@+id/btn_tasbeh_count"
-        android:layout_width="180dp"
-        android:layout_height="75dp"
-        android:text="سبحان الله "
-        android:layout_marginTop="24dp"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_tasbeh_count" />
+        app:layout_constraintTop_toBottomOf="@id/tv_number_of_zekr" />
 
-
-
+    <TextView
+        android:id="@+id/btn_zekr_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:padding="20dp"
+        android:text="subhane allah"
+        android:textColor="@color/azkar_btn_text_color"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:background="@drawable/background_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_zekr_count" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
