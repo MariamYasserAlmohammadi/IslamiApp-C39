@@ -41,7 +41,7 @@
  />
 
     <TextView
-        android:id="@+id/tv_number_of_zekr"
+        android:id="@+id/tv_number_of_zekr_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_number_of_zekr" />
+        app:layout_constraintTop_toBottomOf="@id/tv_number_of_zekr_title" />
 
     <TextView
         android:id="@+id/btn_zekr_name"
@@ -76,9 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
         android:padding="20dp"
-        android:text="subhane allah"
         android:textColor="@color/azkar_btn_text_color"
-        android:textSize="25sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:background="@drawable/background_btn"
         app:layout_constraintEnd_toEndOf="parent"

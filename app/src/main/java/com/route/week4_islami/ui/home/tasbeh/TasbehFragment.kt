@@ -8,8 +8,8 @@ import com.route.week4_islami.databinding.FragmentTasbehBinding
 
 class TasbehFragment : Fragment() {
 
-    private var _viewBinding: FragmentTasbehBinding?=null
-    private val viewBinding get() = _viewBinding!!
+    lateinit var viewBinding: FragmentTasbehBinding
+
     var currentIndex = 0
     var counter = 0
     lateinit var azkarList: MutableList<String>
@@ -18,7 +18,7 @@ class TasbehFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _viewBinding = FragmentTasbehBinding.inflate(inflater, container, false)
+        viewBinding = FragmentTasbehBinding.inflate(inflater, container, false)
         return viewBinding.root
     }
 
@@ -45,8 +45,4 @@ class TasbehFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _viewBinding =null
-    }
 }

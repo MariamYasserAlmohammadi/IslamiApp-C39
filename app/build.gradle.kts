@@ -48,4 +48,13 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Retrofit
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    // gson convertor based on basic library of json  to be compatible with retrofit
+    implementation ("com.google.code.gson:gson:2.9.0")
+    // intercept
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    // glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
 }
